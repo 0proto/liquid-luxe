@@ -25,7 +25,7 @@ class Solver
 	var stiffnessK = 0.904;
 	var sigmaViscousity = 0.204;
 	var betaViscousity = 0.304;
-	var p0 = 2000;
+	var p0 = 1500;
 	var maxNeighbors = 4;
 	var maxParticles = 500;
 
