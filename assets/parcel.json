@@ -1,0 +1,8 @@
+{
+"textures" : [
+	{ "id" : "assets/drop.png" }
+],
+"fonts" : [
+	{ "id" : "font.fnt", "path" : "assets/font/" }
+]
+}

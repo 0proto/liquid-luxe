@@ -1,0 +1,35 @@
+{
+
+  flow: {
+    build: {
+            android : {
+                sdk : '/Users/ekornev/Desktop/android/android-sdk-macosx',
+                ant_path : '/opt/apache-ant/bin/ant'
+            }
+        }
+  },
+
+  project : {
+    name : 'liquidsolver',
+    version : '1.0.0',
+    author : 'chronosyndrome',
+
+    app : {
+      name : 'liquidsolver',
+      package : 'com.chronosyndrome.liquid'
+    },
+
+    build : {
+      dependencies : {
+        luxe : '*',
+        hxmath: '*'
+      }
+    },
+
+    files : {
+      assets : 'assets/'
+    }
+
+  }
+
+}
