@@ -8,7 +8,7 @@ import luxe.Debug;
 import hxmath.math.Vector2;
 import luxe.Vector;
 import phoenix.Batcher;
-
+import luxe.Log;
 import luxe.debug.ProfilerDebugView;
 
 class Main extends luxe.Game {
@@ -23,7 +23,7 @@ class Main extends luxe.Game {
     var lbDelta:Text;
     var lbParticleCount:Text;
     var lbSpringCount:Text;
-    var lbFPS:Text;
+    var lbDC:Text;
 
     override function ready() {
         var json_asset = Luxe.loadJSON('assets/parcel.json');
@@ -47,17 +47,11 @@ class Main extends luxe.Game {
     } //assets_loaded
 
     override function onkeyup( e:KeyEvent ) {
-
         if(e.keycode == Key.escape) {
             Luxe.shutdown();
         }
-
     }
-
-    override function ongamepadaxis(gamepadEvent: GamepadEvent) {
-        trace(gamepadEvent.value);
-    }
-
+    
     override function onmousemove( event:MouseEvent ) {
         solver.flowSrc = new Vector2(event.pos.x,event.pos.y);
     } //onmousemove
@@ -94,12 +88,12 @@ class Main extends luxe.Game {
             font: bFont,
             text : 'springs: '
         });
-        lbFPS = new Text({
+        lbDC = new Text({
             pos : new Vector(0,textSize),
             size : textSize, //pt
             align : TextAlign.left,
             font: bFont,
-            text : 'FPS: '
+            text : 'DC: '
         });
     }
 
@@ -108,7 +102,7 @@ class Main extends luxe.Game {
         lbDelta.text = 'deltatime: '+dt;
         lbParticleCount.text = 'particles: '+solver.particles.length;
         lbSpringCount.text = 'springs: '+Lambda.count(solver.springsMap);
-        lbFPS.text = 'DC: '+Luxe.renderer.batcher.draw_calls+'\n';
+        lbDC.text = 'DC: '+Luxe.renderer.batcher.draw_calls+'\n';
     }
 
 }
